@@ -6,6 +6,15 @@ const UseStateCounter = () => {
     setValue(0);
   };
 
+  const functionalIncrease = () => {
+    setTimeout(() => {
+      // functional approach to handle setState hook, it handle the state from previous state rathan than current value
+      setValue((prevState) => {
+        return prevState + 1;
+      });
+    }, 2000);
+  };
+
   return (
     <>
       <section style={{ margin: '4rem 0' }}>
@@ -17,7 +26,7 @@ const UseStateCounter = () => {
         <button className="btn" onClick={reset}>
           reset
         </button>
-        <button className="btn" onClick={() => setValue(value + 1)}>
+        <button className="btn" onClick={functionalIncrease}>
           increase
         </button>
       </section>
